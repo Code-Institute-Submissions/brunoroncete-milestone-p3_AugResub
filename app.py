@@ -3,6 +3,8 @@ import pymongo
 import env
 
 url = os.environ.get("MONGO_URI")
+
+
 DATABASE = "GranTurismo"
 STATES = "State"
 HOTELS = "Hotel"
@@ -24,11 +26,11 @@ conn = mongo_connect(url)
 coll = conn[DATABASE][STATES]
 
 mystates = [
-    {"State":"Espirito Santo"},
-    {"State":"Sao Paulo"},
-    {"State":"Rio de Janeiro"},
-    {"State":"Bahia"},
-    {"State":"Pernambuco"}    
+    {"State": "Espirito Santo"},
+    {"State": "Sao Paulo"},
+    {"State": "Rio de Janeiro"},
+    {"State": "Bahia"},
+    {"State": "Pernambuco"},
 ]
 
 y = coll.insert_many(mystates)
@@ -38,7 +40,7 @@ print(y.inserted_ids)
 coll = conn[DATABASE][HOTELS]
 
 myhotel = [
-    {"Hotel" : "Ibis", "State": y.inserted_ids[0]},
+    {"Hotel": "Ibis", "State": y.inserted_ids[0]},
 ]
 
 z = coll.insert_many(myhotel)
@@ -47,12 +49,12 @@ print(z.inserted_ids)
 
 coll = conn[DATABASE][USERS]
 
-myuser = {"Username" : "bruno123", "Password" : "12345"}
+myuser = {"Username": "bruno123", "Password": "12345"}
 
 user1 = coll.insert_one(myuser)
 
 coll = conn[DATABASE][COMMENTS]
 
-mycomment = {"comment" : "hello", "user" : user1.inserted_id, "hotel" : z.inserted_ids[0]}
+mycomment = {"comment": "hello", "user": user1.inserted_id, "hotel": z.inserted_ids[0]}
 
 comment1 = coll.insert_one(mycomment)
