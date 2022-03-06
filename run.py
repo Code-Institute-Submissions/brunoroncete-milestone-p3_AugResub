@@ -1,8 +1,9 @@
 import os
 import pymongo
 import env
+import json
 from flask_pymongo import PyMongo
-from flask import Flask, request, abort, session
+from flask import Flask, request, abort, session, jsonify
 from bson.objectid import ObjectId
 
 url = os.environ.get("MONGO_URI")
@@ -57,19 +58,19 @@ def login():
 
 @app.route("/logout")
 def logout():
-    if "username" in session:
-        session.pop("username")
-        print(session("username"))
-    return "Logged out"
+    try:
+         session.pop("username", None)
+    finally:
+        return "Logged out"
 
-@app.route("/states", methods=['GET', 'POST'])
+@app.route("/states", methods=['GET'])
 def get_states():
     myclient = pymongo.MongoClient(url)
     mydb = myclient["GranTurismo"]
-    mycol = mydb["states"]
-    states = mycol.find("")
+    mycol = mydb["state"]
+    states = mycol.find()
 
-    return render_template("states.html")
+    return states
 
 
 
