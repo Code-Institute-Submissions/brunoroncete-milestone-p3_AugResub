@@ -1,15 +1,16 @@
 import os
 import pymongo
 import env
+from flask_pymongo import PyMongo
 
 url = os.environ.get("MONGO_URI")
 
 
 DATABASE = "GranTurismo"
-STATES = "State"
-HOTELS = "Hotel"
-USERS = "User"
-COMMENTS = "Comment"
+STATES = "state"
+HOTELS = "hotel"
+USERS = "user"
+COMMENTS = "comment"
 
 
 def mongo_connect(url):
@@ -26,12 +27,15 @@ conn = mongo_connect(url)
 coll = conn[DATABASE][STATES]
 
 mystates = [
-    {"State": "Espirito Santo"},
-    {"State": "Sao Paulo"},
-    {"State": "Rio de Janeiro"},
-    {"State": "Bahia"},
-    {"State": "Pernambuco"},
-]
+    {"state": "Espirito Santo"},
+    {"state": "Sao Paulo"},
+    {"state": "Rio de Janeiro"},
+    {"state": "Bahia"},
+    {"state": "Pernambuco"},
+    {"state": "Ceara"},
+    {"state": "Rio Grande do Sul"},
+    {"state": "Santa Catarina"}
+    ]
 
 y = coll.insert_many(mystates)
 
@@ -39,9 +43,7 @@ print(y.inserted_ids)
 
 coll = conn[DATABASE][HOTELS]
 
-myhotel = [
-    {"Hotel": "Ibis", "State": y.inserted_ids[0]},
-]
+myhotel = [{"hotel": "Ibis", "state": y.inserted_ids[0]}]
 
 z = coll.insert_many(myhotel)
 
