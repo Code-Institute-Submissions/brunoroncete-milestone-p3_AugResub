@@ -12,9 +12,30 @@ app.secret_key = os.environ.get("SECRET_KEY")
 app.config.update(SESSION_COOKIE_SAMESITE="None", SESSION_COOKIE_SECURE=True)
 
 
-"""
-Login 
-"""
+@app.route("/register", methods=['POST'])
+def register():
+    myclient = pymongo.MongoClient(url)
+    mydb = myclient["GranTurismo"]
+    mycol = mydb["user"]
+    jsonreq = request.get_json()
+    print(jsonreq)
+       
+    existing_user = mycol.find_one({"username": jsonreq["username"]})
+    print(existing_user)
+
+    if existing_user:
+        return "username already exists"
+
+    req = {"username": jsonreq["username"], "password": jsonreq["password"]}
+
+    x = mycol.insert_one(req)
+
+    print(x.inserted_id)
+
+
+    return "Successful registration"
+
+
 
 
 @app.route("/login", methods=['POST', 'GET'])
@@ -24,11 +45,11 @@ def login():
     mycol = mydb["user"]
 
     jsonreq = request.get_json()
-    req = {"Username": jsonreq["Username"], "Password": jsonreq["Password"]}
+    req = {"username": jsonreq["username"], "password": jsonreq["password"]}
     for x in mycol.find(req):
-        session["Username"] = jsonreq["Username"]
-        session["Password"] = jsonreq["Password"]
-        print(session["Username"])
+        session["username"] = jsonreq["username"]
+        session["password"] = jsonreq["password"]
+        print(session["username"])
         return "Login succeed"
 
     return abort(404)
@@ -36,9 +57,9 @@ def login():
 
 @app.route("/logout")
 def logout():
-    if "Username" in session:
-        session.pop("Username")
-        print(session("Username"))
+    if "username" in session:
+        session.pop("username")
+        print(session("username"))
     return "Logged out"
 
 @app.route("/states", methods=['GET', 'POST'])
@@ -57,10 +78,8 @@ def get_states():
 Opening server on port 5000
 """
 if __name__ == "__main__":
-    app.run(
-        host=os.environ.get("IP"),
-        port=int(os.environ.get("PORT")),
-        debug=True,
-    )
+    app.run(host=os.environ.get("IP"),
+            port=int(os.environ.get("PORT")),
+            debug=True)
 
 

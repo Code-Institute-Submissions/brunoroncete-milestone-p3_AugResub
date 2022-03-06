@@ -43,7 +43,24 @@ print(y.inserted_ids)
 
 coll = conn[DATABASE][HOTELS]
 
-myhotel = [{"hotel": "Ibis", "state": y.inserted_ids[0]}]
+myhotel = [
+    {"hotel": "A", "state": y.inserted_ids[0]},
+    {"hotel": "B", "state": y.inserted_ids[0]},
+    {"hotel": "C", "state": y.inserted_ids[1]},
+    {"hotel": "D", "state": y.inserted_ids[1]},
+    {"hotel": "E", "state": y.inserted_ids[2]},
+    {"hotel": "F", "state": y.inserted_ids[2]},
+    {"hotel": "G", "state": y.inserted_ids[3]},
+    {"hotel": "H", "state": y.inserted_ids[3]},
+    {"hotel": "I", "state": y.inserted_ids[4]},
+    {"hotel": "J", "state": y.inserted_ids[4]},
+    {"hotel": "K", "state": y.inserted_ids[5]},
+    {"hotel": "L", "state": y.inserted_ids[5]},
+    {"hotel": "M", "state": y.inserted_ids[6]},
+    {"hotel": "N", "state": y.inserted_ids[6]},
+    {"hotel": "O", "state": y.inserted_ids[7]},
+    {"hotel": "P", "state": y.inserted_ids[7]},
+    ]
 
 z = coll.insert_many(myhotel)
 
@@ -51,7 +68,7 @@ print(z.inserted_ids)
 
 coll = conn[DATABASE][USERS]
 
-myuser = {"Username": "bruno123", "Password": "12345"}
+myuser = {"username": "bruno123", "password": "12345"}
 
 user1 = coll.insert_one(myuser)
 
