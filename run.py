@@ -3,8 +3,12 @@ import pymongo
 import env
 import json
 from flask_pymongo import PyMongo
-from flask import Flask, request, abort, session, jsonify
+from flask import (
+    Flask, flash, render_template,
+    redirect, request, session, url_for)
 from bson.objectid import ObjectId
+if os.path.exists("env.py"):
+    import env
 
 url = os.environ.get("MONGO_URI")
 
@@ -13,28 +17,29 @@ app.secret_key = os.environ.get("SECRET_KEY")
 app.config.update(SESSION_COOKIE_SAMESITE="None", SESSION_COOKIE_SECURE=True)
 
 
-@app.route("/register", methods=['POST'])
+@app.route("/register", methods=['POST','GET'])
 def register():
-    myclient = pymongo.MongoClient(url)
-    mydb = myclient["GranTurismo"]
-    mycol = mydb["user"]
-    jsonreq = request.get_json()
-    print(jsonreq)
-       
-    existing_user = mycol.find_one({"username": jsonreq["username"]})
-    print(existing_user)
+    if request.method == "POST":
+        myclient = pymongo.MongoClient(url)
+        mydb = myclient["GranTurismo"]
+        mycol = mydb["user"]
+        username = request.form['username']
+        password = request.form['password']
+        
+        existing_user = mycol.find_one({"username": username})
+        print(existing_user)
 
-    if existing_user:
-        return "username already exists"
+        if existing_user:
+            return "username already exists"
 
-    req = {"username": jsonreq["username"], "password": jsonreq["password"]}
+        req = {"username": username, "password": password}
 
-    x = mycol.insert_one(req)
+        x = mycol.insert_one(req)
 
-    print(x.inserted_id)
+        print(x.inserted_id)
 
 
-    return "Successful registration"
+    return render_template("register.html")
 
 
 
@@ -76,7 +81,7 @@ def get_states():
 
 
 """
-Opening server on port 5000
+Opening server 
 """
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
