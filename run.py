@@ -1,12 +1,12 @@
 import os
 import pymongo
 import env
-import json
 from flask_pymongo import PyMongo
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -24,7 +24,7 @@ def register():
         mydb = myclient["GranTurismo"]
         mycol = mydb["user"]
         username = request.form['username']
-        password = request.form['password']
+        password = generate_password_hash(request.form['password'])
         
         existing_user = mycol.find_one({"username": username})
         print(existing_user)
@@ -37,6 +37,7 @@ def register():
         x = mycol.insert_one(req)
 
         print(x.inserted_id)
+        flash("Registration Successful!")
 
 
     return render_template("register.html")
@@ -46,27 +47,30 @@ def register():
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
-    myclient = pymongo.MongoClient(url)
-    mydb = myclient["GranTurismo"]
-    mycol = mydb["user"]
+    if request.method == "POST":
+        myclient = pymongo.MongoClient(url)
+        mydb = myclient["GranTurismo"]
+        mycol = mydb["user"]
+        username = request.form['username']
+        password = request.form['password']
 
-    jsonreq = request.get_json()
-    req = {"username": jsonreq["username"], "password": jsonreq["password"]}
-    for x in mycol.find(req):
-        session["username"] = jsonreq["username"]
-        session["password"] = jsonreq["password"]
-        print(session["username"])
-        return "Login succeed"
+        req = {"username": username, "password": password}
+        for x in mycol.find(req):
+            session["username"] = username
+            session["password"] = password
+            print(session["username"])
+            flash()
 
-    return abort(404)
+    return render_template("register.html")
 
 
 @app.route("/logout")
 def logout():
-    try:
-         session.pop("username", None)
-    finally:
-        return "Logged out"
+    flash("You have been logged out")
+    session.pop("user", None)
+    
+    redirect(url_for("index"))
+
 
 @app.route("/states", methods=['GET'])
 def get_states():
