@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap');
+
+
+
+
+/*------------ Footer */
+.social-media li {
+    text-align: center;
+    font-size: 36px;
+}
+
+.social-media a {
+    color: #fff;
+    padding: 10px;
+}
+
+.social-media {
+    display: inline-flex;
+    text-decoration: none;
+    width: fit-content;
+    margin: auto;
+    padding: 15px;
+    justify-content: space-between;
+}
+
+.sm-area {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    max-width: 250px;
+    max-height: auto;
+}
+
+.statescards {
+    display: flex;
+}

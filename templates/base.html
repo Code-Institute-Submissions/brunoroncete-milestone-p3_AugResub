@@ -7,31 +7,61 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
     integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
     
     {% block styles %}
     {% endblock %}
     
-    <title>Title</title>
+    <title>STAR</title>
 </head>
 
-<body>
-    {% block content %}
-  <header>
+<body class="#000000 black">
+<header>
     <nav>
-        <div class="nav-wrapper">
-            <a href="{{ url_for('index') }}" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Components</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-                </ul>
+        <div class="nav-wrapper #01579b light-blue darken-4" >
+          <a href="#!" class="brand-logo">STAR Hotels and Accomodations</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
         </div>
-    </nav>
+      </nav>
+    
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
 </header>
-   
+<div class="container">
+            <img src="/static/images/relax.jpg" class="responsive-img banner" alt="img-logo" style="width:1280px;height:350px;">
+</div>   
+    {% block content %}
     {% endblock %}
+<div class="footer">    
+    <div class="sm-area #01579b light-blue darken-4">
+        <ul class="social-media list-inline">
+            <li><a href="https://www.facebook.com" target="_blank" aria-label="facebook" title="Facebook"
+                    rel="noopener"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.twitter.com" target="_blank" aria-label="twitter" title="Twitter" rel="noopener"><i
+                        class="fab fa-twitter-square"></i></a></li>
+            <li><a href="https://www.youtube.com" target="_blank" aria-label="youtube" title="Youtube" rel="noopener"><i
+                        class="fab fa-youtube-square"></i></a></li>
+            <li><a href="https://www.instagram.com" target="_blank" aria-label="instagram" title="Instagram"
+                    rel="noopener"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </div>
+</div>    
+    {% block footer %}
+    {% endblock %}    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block scripts %}

@@ -69,7 +69,7 @@ def logout():
     flash("You have been logged out")
     session.pop("user", None)
     
-    redirect(url_for("index"))
+    return redirect(url_for("get_states"))
 
 
 @app.route("/states", methods=['GET'])
@@ -79,7 +79,9 @@ def get_states():
     mycol = mydb["state"]
     states = mycol.find()
 
-    return states
+    print(states)
+
+    return render_template("states.html")
 
 
 
