@@ -61,7 +61,7 @@ def login():
             print(session["username"])
             flash()
 
-    return render_template("register.html")
+    return render_template("login.html")
 
 
 @app.route("/logout")

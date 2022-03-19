@@ -1,7 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap',);
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-
+body {
+    background-color: #CAE4DB;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 
 /*------------ Footer */
 .social-media li {
@@ -28,6 +40,7 @@
     position: relative;
     justify-content: space-around;
     flex-wrap: wrap;
+    background-color: #00303F;
 }
 
 .card {
@@ -38,4 +51,25 @@
 
 .statescards {
     display: flex;
+    justify-content: space-evenly;
 }
+
+#navbar {
+    background-color: #00303F;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: #DCAE1D;
+}
+
+#banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    max-width: 70%;
+    
+}
+
