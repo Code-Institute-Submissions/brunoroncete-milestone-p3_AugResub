@@ -30,7 +30,8 @@ def register():
         print(existing_user)
 
         if existing_user:
-            return "username already exists"
+            flash ("username already exists")
+            return redirect(url_for("register"))
 
         req = {"username": username, "password": password}
 
