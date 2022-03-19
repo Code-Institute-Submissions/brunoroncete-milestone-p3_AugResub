@@ -84,6 +84,17 @@ def get_states():
     return render_template("states.html")
 
 
+@app.route("/hotels", methods=['POST','GET'])
+def hotels():
+    myclient = pymongo.MongoClient(url)
+    mydb = myclient["GranTurismo"]
+    mycol = mydb["hotel"]
+    states = mycol.find()
+    print(states)
+
+    return render_template("hotels.html")
+
+
 
 
 """

@@ -2,36 +2,40 @@
 {% block content %}
 
 
-<div id = "login" class="row">  
-    <form class="col s12" method="GET" action="{{ url_for('login') }}">
-    <div class="row">
-        <div class="col s12 m8 l4 offset-m2 offset-l4">
-        <div class="card">
-    
-            <div class="card-action teal lighten-1 white-text">
-            <h3>Login Form</h3>
+<div class="background-image" id="login"></div>
+<div class="title">
+  <h3 class="center-align grey-text">Welcome!</h3>
+</div>
+<div class="row">
+  <div class="col s12 l4 offset-l4">
+    <div class="card grey lighten-3">
+      <div class="card-content">
+        <h4 class="card-title center-align">Login</h4>
+        <form>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">email</i>
+              <input type="email" id="email" class="validate" />
+              <label for="email">Email</label>
             </div>
-    
-            <div class="card-content">
-            <div class="form-field">
-                <label for="username">Username</label>
-                <input type="text" id="username">
-            </div><br>
-    
-            <div class="form-field">
-                <label for="password">Password</label>
-                <input type="password" id="password">
-            </div><br>
-    
-            <div class="form-field">
-                <button class="btn-large waves-effect waves-dark" style="width:100%;">Login</button>
-            </div><br>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">vpn_key</i>
+              <input type="password" id="password" class="validate" />
+              <label for="email">Password</label>
             </div>
-    
-        </div>
-        </div>
+          </div>
+          <div class="row center-align">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-    </form> 
-</div> 
-
+  </div>
+</div>
+<br>
+<br>
   {% endblock %}

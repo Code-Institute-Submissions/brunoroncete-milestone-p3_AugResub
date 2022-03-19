@@ -71,7 +71,7 @@ print(z.inserted_ids)
 
 coll = conn[DATABASE][USERS]
 
-myuser = {"username": "bruno123", "password": "12345"}
+myuser = {"username": "bruno123", "password": "12345", "email":"blabla@bla.com" }
 
 user1 = coll.insert_one(myuser)
 
