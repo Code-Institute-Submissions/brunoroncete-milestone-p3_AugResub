@@ -128,3 +128,9 @@ form {
 #hotel_form {
     display: flex;
 }
+
+.hotelcard {
+    display: flex;
+    justify-content: space-evenly;
+
+}
