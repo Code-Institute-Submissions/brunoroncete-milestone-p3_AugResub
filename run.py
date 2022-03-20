@@ -14,7 +14,7 @@ url = os.environ.get("MONGO_URI")
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY")
-app.config.update(SESSION_COOKIE_SAMESITE="None", SESSION_COOKIE_SECURE=False)
+
 
 
 @app.route("/register", methods=['POST','GET'])
@@ -98,6 +98,24 @@ def hotels():
         return render_template("hotels.html", states = request.args.get('states'))
 
     return render_template("hotels.html")
+
+
+
+@app.route("/add_hotel", methods=['POST','GET'])
+def add_hotel():
+    if "user" in session:
+
+        return render_template('add_hotel.html')  
+
+    return redirect(url_for('login'))
+
+@app.route("/hotel_mngt", methods=['POST','GET'])
+def hotel_mngt():
+    if "user" in session:
+
+        return render_template('add_hotel.html')  
+
+    return redirect(url_for('login'))
 
 
 

@@ -124,3 +124,7 @@ form {
 #loginbttn {
     background-color: #DCAE1D;
 }
+
+#hotel_form {
+    display: flex;
+}

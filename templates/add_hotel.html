@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block styles %}
+{% endblock %}
+{% block content %}
+
+
+
+<div class="row">
+    <form class="col s14" method="POST" action="{{ url_for('add_hotel') }}">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" name="hotel_name" id="hotel_name" type="text">
+                <label for="hotel_name">Hotel name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="hotel_description" name="hotel_description" id="hotel_description" type="text">
+                <label for="hotel_description">Description</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="img_url" name="img_url" id="img_url" type="text">
+                <label for="img_url">Image URL</label>
+            </div>
+        </div>
+        <a class="btn waves-effect waves-light" href="{{url_for('hotel_mngt')}}">Return<i
+                class="material-icons">arrow_back</i></a>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+
+    </form>
+</div>
+
+
+{% endblock %}
+{% block footer %}
+{% endblock %}
