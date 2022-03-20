@@ -23,8 +23,8 @@ def register():
         myclient = pymongo.MongoClient(url)
         mydb = myclient["GranTurismo"]
         mycol = mydb["user"]
-        username = request.form['username']
-        password = generate_password_hash(request.form['password'])
+        username = request.form.get('username')
+        password = generate_password_hash(request.form.get('password'))
         
         existing_user = mycol.find_one({"username": username})
         print(existing_user)
@@ -52,15 +52,24 @@ def login():
         myclient = pymongo.MongoClient(url)
         mydb = myclient["GranTurismo"]
         mycol = mydb["user"]
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get('username')
+        password = request.form.get('password')
 
-        req = {"username": username, "password": password}
-        for x in mycol.find(req):
-            session["username"] = username
-            session["password"] = password
-            print(session["username"])
-            flash()
+        existing_user = mycol.find_one({"username": username})
+
+        if existing_user:
+            if check_password_hash(
+                existing_user["password"], password):
+                    session["user"] = username
+                    flash("Welcome, {}".format(username))
+                   
+            else:
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+                
+        else:
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
 
     return render_template("login.html")
 
