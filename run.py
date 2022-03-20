@@ -62,6 +62,7 @@ def login():
                 existing_user["password"], password):
                     session["user"] = username
                     flash("Welcome, {}".format(username))
+                    return redirect(url_for("get_states"))
                    
             else:
                 flash("Incorrect Username and/or Password")
@@ -70,6 +71,7 @@ def login():
         else:
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
+        
 
     return render_template("login.html")
 
@@ -84,15 +86,11 @@ def logout():
 
 @app.route("/states", methods=['GET'])
 def get_states():
-    myclient = pymongo.MongoClient(url)
-    mydb = myclient["GranTurismo"]
-    mycol = mydb["state"]
-    states = mycol.find()
+    if "user" in session:
 
-    print(states)
+        return render_template("states.html")
 
-    return render_template("states.html")
-
+    return redirect(url_for('login'))
 
 @app.route("/hotels", methods=['POST','GET'])
 def hotels():
