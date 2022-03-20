@@ -14,7 +14,7 @@ url = os.environ.get("MONGO_URI")
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY")
-app.config.update(SESSION_COOKIE_SAMESITE="None", SESSION_COOKIE_SECURE=True)
+app.config.update(SESSION_COOKIE_SAMESITE="None", SESSION_COOKIE_SECURE=False)
 
 
 @app.route("/register", methods=['POST','GET'])
@@ -96,11 +96,8 @@ def get_states():
 
 @app.route("/hotels", methods=['POST','GET'])
 def hotels():
-    myclient = pymongo.MongoClient(url)
-    mydb = myclient["GranTurismo"]
-    mycol = mydb["hotel"]
-    states = mycol.find()
-    print(states)
+    if request.method == "GET":
+        return render_template("hotels.html", states = request.args.get('states'))
 
     return render_template("hotels.html")
 

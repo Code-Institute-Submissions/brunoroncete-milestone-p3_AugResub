@@ -45,8 +45,6 @@
                 <ul class="right hide-on-med-and-down">
                     {% if session.user %}
                     <li><a href="{{ url_for('get_states') }}">Home</a></li>
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
                     <li><a href="{{ url_for('get_states') }}">Home</a></li>
