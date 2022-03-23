@@ -44,8 +44,6 @@ def register():
     return render_template("register.html")
 
 
-
-
 @app.route("/login", methods=['POST', 'GET'])
 def login():
     if request.method == "POST":
@@ -63,7 +61,7 @@ def login():
                     session["user"] = username
                     flash("Welcome, {}".format(username))
                     return redirect(url_for("get_states"))
-                   
+                
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
@@ -71,6 +69,7 @@ def login():
         else:
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
+
         
 
     return render_template("login.html")
@@ -87,32 +86,49 @@ def logout():
 @app.route("/states", methods=['GET'])
 def get_states():
     if "user" in session:
-
         return render_template("states.html")
 
     return redirect(url_for('login'))
 
 @app.route("/hotels", methods=['POST','GET'])
 def hotels():
-    if request.method == "GET":
-        return render_template("hotels.html", states = request.args.get('states'))
-
-    return render_template("hotels.html")
+    myclient = pymongo.MongoClient(url)
+    mydb = myclient["GranTurismo"]
+    mycol = mydb["hotel"]
+        
+    return render_template("hotels.html", hotels = list(mycol.find()))
 
 
 
 @app.route("/add_hotel", methods=['POST','GET'])
 def add_hotel():
-    if "user" in session:
+    if request.method == "POST":
+        myclient = pymongo.MongoClient(url)
+        mydb = myclient["GranTurismo"]
+        mycol = mydb["hotel"]
+        name = request.form.get('hotel_name')
+        description = request.form.get('hotel_description')
+        img_url = request.form.get('img_url')
+        
+        existing_hotel = mycol.find_one({"name": name})
+        
+        if existing_hotel:
+            flash ("Hotel already exists")
+            return redirect(url_for("add_hotel"))
 
-        return render_template('add_hotel.html')  
+        req = {"name": name, "description": description, "img_url" : img_url}
 
-    return redirect(url_for('login'))
+        x = mycol.insert_one(req)
+
+    if "user" in session :
+        return render_template("add_hotel.html")
+ 
+    return redirect(url_for("login"))
+
 
 @app.route("/hotel_mngt", methods=['POST','GET'])
 def hotel_mngt():
     if "user" in session:
-
         return render_template('add_hotel.html')  
 
     return redirect(url_for('login'))
