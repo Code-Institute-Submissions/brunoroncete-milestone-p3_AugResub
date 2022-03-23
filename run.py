@@ -16,6 +16,9 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY")
 
 
+@app.route("/")
+def index():
+    return redirect("states")
 
 @app.route("/register", methods=['POST','GET'])
 def register():
@@ -84,11 +87,13 @@ def logout():
 
 
 @app.route("/states", methods=['GET'])
-def get_states():
-    if "user" in session:
-        return render_template("states.html")
+def states():
+    myclient = pymongo.MongoClient(url)
+    mydb = myclient["GranTurismo"]
+    mycol = mydb["states"]
+        
+    return render_template("states.html", states = list(mycol.find()))
 
-    return redirect(url_for('login'))
 
 @app.route("/hotels", methods=['POST','GET'])
 def hotels():
