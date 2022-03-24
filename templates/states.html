@@ -3,98 +3,35 @@
 {% endblock %}
 {% block content %}
 
-
 <div class="destinations col s8">
   <h4 class="title">Destinations</h3>
     <hr>
 </div>
+
+
+
 <div class="statescards">
+  {% for state in states %}
   <div class="row">
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-          <img src="/static/images/vitoria.jpg">
-          <span class="card-title">Espirito Santo</span>
+          <img src="{{state['img_url']}}">
         </div>
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
+          <p>{{state["state"]}}</p>
         </div>
         <div class="card-action">
-          <a href="{{ url_for('hotels') }}?states=ES">This is a link</a>
+          <a href="{{ url_for('hotels') }}?state={{state['state']}}">This is a link</a>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col s12 m7">
-      <div class="card medium">
-        <div class="card-image">
-          <img src="/static/images/rio.jpg">
-          <span class="card-title">Rio de Janeiro</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="{{ url_for('hotels') }}?states=RJ">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12 m7">
-      <div class="card medium" id="cardshome">
-        <div class="card-image">
-          <img src="/static/images/vitoria.jpg">
-          <span class="card-title">Sao Paulo</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="{{ url_for('hotels') }}?states=SP">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12 m7">
-      <div class="card medium">
-        <div class="card-image">
-          <img src="/static/images/vitoria.jpg">
-          <span class="card-title">Bahia</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="{{ url_for('hotels') }}?states=BA">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12 m7">
-      <div class="card medium">
-        <div class="card-image">
-          <img src="/static/images/vitoria.jpg">
-          <span class="card-title">Ceara</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="{{ url_for('hotels') }}?states=CE">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  
+{% endfor %}
+</div> 
+
+
 {% endblock %}
 {% block footer %}
 {% endblock %}

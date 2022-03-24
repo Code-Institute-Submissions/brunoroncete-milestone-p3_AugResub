@@ -45,7 +45,16 @@
                 <ul class="right hide-on-med-and-down">
                     {% if session.user %}
                     <li><a href="{{ url_for('get_states') }}">Home</a></li>
-                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    
+                      <!-- Dropdown Trigger -->
+                    <a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons">menu</i></a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="{{ url_for('add_hotel') }}">Add Hotels</a></li>
+                        <li><a href="{{ url_for('hotel_mngt') }}">Manage Hotels</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    </ul>
                     {% else %}
                     <li><a href="{{ url_for('get_states') }}">Home</a></li>
                     <li><a href="{{ url_for('login') }}">Login</a></li>

@@ -87,10 +87,10 @@ def logout():
 
 
 @app.route("/states", methods=['GET'])
-def states():
+def get_states():
     myclient = pymongo.MongoClient(url)
     mydb = myclient["GranTurismo"]
-    mycol = mydb["states"]
+    mycol = mydb["state"]
         
     return render_template("states.html", states = list(mycol.find()))
 
