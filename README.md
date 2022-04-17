@@ -1,108 +1,197 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# MATCH THE FLAGS
 
-Welcome USER_NAME,
+![Mockup](assets/images/mockup.png)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This comprehensive site was designed for the third of four Milestone Projects that the developer must complete during the Full Stack Web Development Program at The Code Institute. The main requirements were to build a full-stack site that allows your users to manage a common dataset about a particular domain.
+## UX
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+The purpose is to design an attractive website, so the players can enjoy and have fun with the game.
 
-## Gitpod Reminders
+## User Stories
+### First Time Visitor Goals
+1. As a first time visitor, I want a clear understanding of the interactive game on show.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+2. As a first time visitor, I want a description of how to play the game.
 
-`python3 -m http.server`
+3. As a first time visitor, I want to have live scoring and a timer showing how long I took to win the game.
 
-A blue button should appear to click: _Make Public_,
+# Return Visitor Goals
 
-Another blue button should appear to click: _Open Browser_.
+1. As a return visitor, I want to enjoy the game.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Design
+### Colour Scheme
 
-A blue button should appear to click: _Make Public_,
+- The main colours used are green, white and black, to give the site a clean, modern and professional look.
 
-Another blue button should appear to click: _Open Browser_.
+### Typography
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- The Fredoka one font is used throughout the website with Sans Serif.
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Wireframes
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+#### index.html
+1. [Desktop index.html](assets/images/web.png)
 
-------
+2. [Mobile index.html](assets/images/phone.png)
 
-## Release History
+3. [Tablet index.html](assets/images/tablet.png)
+## Existing Features
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#### Below is a brief overview of the website and its main features.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- Timer and Score Board
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+![Timer.html](assets/images/timerscore.png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- How to play button
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+![How to play.html](assets/images/howtoplay.png)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+![Modal.html](assets/images/modal.png)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- Game Board
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+![Game up.html](assets/images/game.png)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![Game down.html](assets/images/game2.png)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- Play again button
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![Restart button.html](assets/images/restartbutton.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- You Win Alert
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+![Alert.html](assets/images/aviso.png)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
-------
+## Frameworks, Languages & Programs Used
 
-## FAQ about the uptime script
+### [VSCode](https://code.visualstudio.com/)
+- This developer used VSCode for their IDE while building the website.
 
-**Why have you added this script?**
+### [BootstrapCDN](https://www.bootstrapcdn.com/)
+- The project uses Bootstrap v 5.1.0 to simplify the structure of the website.
+- The project also uses BootstrapCDN to provide icons from FontAwesome.
+### [Google Fonts](https://fonts.google.com/)
+- The project uses Google fonts to style the website fonts.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### [Balsamiq](https://balsamiq.com/) 
+- The project uses Balsamiq to create the wireframe mockups.
 
-**How will this affect me?**
+### HTML 5 
+- Markup language designed to be displayed in a web browser.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### CSS 3
+- Style sheet language used for describing the presentation of a document in HTML.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Javascript
+- JavaScript is a scripting language used to create and control dynamic website content.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+## Testing
 
-**So….?**
+### Development Testing
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+-  I used the Google Chrome Developer tools during the development of the website to inspect the site at different device sizes and in responsive mode.
 
-**Can I opt out?**
+### Manual Testing
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+1. As a first time visitor, I want a clear understanding of the interactive game on show.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+- A large majority of the world's population have played or understand how a memory game is played. As soon as users enter the site, it is abundantly clear what the game is and how to play it.
 
-**Anything more?**
+2. As a first time visitor, I want a description of how to play the game.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- There is a button "HOW TO PLAY?", where the user can find the rules.
 
----
+3. As a first time visitor, I want to have live scoring and a timer showing how long I took to win the game.
 
-Happy coding!
+- There is a score board showing the number of matches done and a timer to show how long it's taking to win the game.
+
+- Social Media Links
+1. When each link is clicked, it opens a new tab.
+2. When each link is clicked, it takes the user to the correct page.
+
+### Code Validation
+
+The W3C Markup Validator and W3C CSS Validator Services were used to validate the project to ensure there were no syntax errors in the project.
+
+- W3C Markup Validator
+
+index.html
+
+![Markup Index](assets/images/cssvalid.png)
+
+
+- W3C CSS Validator 
+
+![Markup CSS](assets/images/cssvalid1.png)
+
+
+- Lighthouse
+
+![Lighthouse](assets/images/lighthouse.png)
+
+I used the Lighthouse on Google Developer Tools to check the Perfomance, Accessibility, Best Practices and SEO of the website.
+
+- PowerMapper 
+
+![PowerMapper](assets/images/powermapper.png)
+
+PowerMapper was used to double-check the browser compatibility.
+
+### Issues
+- The timer starts as soon as the user enter the page, but it should start after the first click. Restarting the game makes it retart the timer.
+
+- 
+
+## Deployment
+
+This project was developed using Visual Studio Code Insiders, committed to git and pushed to GitHub using git bash terminal.
+
+### Deploying on GitHub pages
+
+1. Log in to GitHub and navigate to the GitHub Repository.
+2. At the top of the repository, select "Settings" from the menu items.
+3. At the Settings menu, select "Pages".
+4. Select the main branch and the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+
+The live link can be found here - https://brunoroncete.github.io/project2/
+
+### Forking the GitHub Repository
+
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps.
+
+1. Log in to GitHub and locate the GitHub Repository
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
+
+### Making a Local Clone
+
+1. Log in to GitHub and locate the GitHub Repository
+2. Under the repository name, click "Clone or download".
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open Git Bash
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type git clone, and then paste the URL you copied in Step 3.
+7. Press Enter. Your local clone will be created.
+
+## Credits
+
+### Code
+
+- Bootstrap v 5.1.0: Bootstrap was used throughtout the project mainly the buttons, cards and carousel.
+- FontAwesome: The icons in the footer were taken from Font Awesome.
+
+### Media
+
+- All images were sourced from [Unsplash](https://unsplash.com/) or [Pexels](https://www.pexels.com/).
+### Acknowledgements
+
+- Student care and fellow students at Code Institute for their support.
+
+
+
+

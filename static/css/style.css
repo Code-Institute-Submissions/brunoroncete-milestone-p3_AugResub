@@ -51,7 +51,7 @@ body {
 
 .card {
     display: flex;
-    max-width: 250px;
+    max-width: 300px;
     max-height: auto;
 }
 
@@ -141,45 +141,4 @@ form {
     display: flex;
     justify-content: space-evenly;
 
-}
-
-
-.main {
-    max-width: 500px;
-    margin: 50px auto 0
-}
-
-.btn {
-    height: $height;
-    line-height: $height;
-    position: relative;
-    padding: 0 $pixels-10 0 35px;
-    text-align: center;
-
-    i {
-        position: absolute;
-        left: $pixels-10;
-        top: 0;
-        line-height: $height;
-    }
-}
-
-.blue-color {
-    color: $link-color
-}
-
-.btn-floating {
-    position: absolute;
-    bottom: 85px;
-    right: $pixels-10 * 2;
-}
-
-.card-title {
-    position: reltive;
-
-    i {
-        position: absolute;
-        right: $pixels-10;
-        top: $pixels-10;
-    }
 }
