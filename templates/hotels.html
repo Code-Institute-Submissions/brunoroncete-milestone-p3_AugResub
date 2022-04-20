@@ -3,8 +3,12 @@
 {% endblock %}
 {% block content %}
 
+<div class="destinations col s8">
+    <h4 class="title">Destinations</h3>
+      <hr>
+  </div>
 
-<div class="hotelcard">
+<div class="statescards">
 {% for hotel in hotels %}
 
 <div class="row">
@@ -21,8 +25,9 @@
 
             <div class="card-action">
                 <a
-                    href="https://www.booking.com/hotel/br/duro-beach.en-gb.html?aid=376362&label=booking-name-76kIZu_r4nV*03zZ39ZGBAS461484956115%3Apl%3Ata%3Ap1%3Ap22%2C563%2C000%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp9045891%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YTQUGSsRwx9_llxDbUbGjaI&sid=5bb5ff587bc40cb2ca0217214a23fbf2&dest_id=900040292&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=10&hpos=10&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1647721755&srpvid=e473900c035e0231&type=total&ucfs=1&activeTab=main">BOOK
-                    NOW</a>
+                    href="{{hotel['hotel_link']}}">BOOK
+                    NOW
+                </a>
             </div>
         </div>
     </div>

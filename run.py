@@ -18,7 +18,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 @app.route("/")
 def index():
-    return redirect("states")
+    return redirect("hotels")
 
 @app.route("/register", methods=['POST','GET'])
 def register():
@@ -95,16 +95,6 @@ def get_states():
     return render_template("states.html", states = list(mycol.find()))
 
 
-@app.route("/hotels", methods=['POST','GET'])
-def hotels():
-    myclient = pymongo.MongoClient(url)
-    mydb = myclient["GranTurismo"]
-    mycol = mydb["hotel"]
-        
-    return render_template("hotels.html", hotels = list(mycol.find()))
-
-
-
 @app.route("/add_hotel", methods=['POST','GET'])
 def add_hotel():
     if request.method == "POST":
@@ -114,6 +104,8 @@ def add_hotel():
         name = request.form.get('hotel_name')
         description = request.form.get('hotel_description')
         img_url = request.form.get('img_url')
+        hotel_link = request.form.get('hotel_link')
+        
         
         existing_hotel = mycol.find_one({"name": name})
         
@@ -121,15 +113,24 @@ def add_hotel():
             flash ("Hotel already exists")
             return redirect(url_for("add_hotel"))
 
-        req = {"name": name, "description": description, "img_url" : img_url}
+        req = {"name": name, "description": description, "img_url" : img_url, "hotel_link" : hotel_link}
 
         x = mycol.insert_one(req)
+        
+        return redirect(url_for("hotel_mngt"))
 
     if "user" in session :
         return render_template("add_hotel.html")
  
     return redirect(url_for("login"))
 
+@app.route("/hotels", methods=['POST','GET'])
+def hotels():
+    myclient = pymongo.MongoClient(url)
+    mydb = myclient["GranTurismo"]
+    mycol = mydb["hotel"]
+        
+    return render_template("hotels.html", hotels = list(mycol.find()))
 
 @app.route("/hotel_mngt", methods=['POST','GET'])
 def hotel_mngt():
@@ -150,7 +151,8 @@ def edit():
         name = request.form.get('hotel_name')
         description = request.form.get('hotel_description')
         img_url = request.form.get('img_url')
-        req = {"name": name, "description": description, "img_url" : img_url}
+        hotel_link = request.form.get('hotel_link')
+        req = {"name": name, "description": description, "img_url" : img_url, "hotel_link" : hotel_link }
         mycol.update_one({"_id": ObjectId(hotel_id)}, {"$set": req}, upsert=False)
         return redirect(url_for("hotel_mngt"))
   
@@ -164,6 +166,19 @@ def edit():
  
     return redirect(url_for("login"))
 
+@app.route("/delete", methods=['POST','GET'])
+def delete():
+    myclient = pymongo.MongoClient(url)
+    mydb = myclient["GranTurismo"]
+    mycol = mydb["hotel"]
+    hotel_id = request.args.get('id')
+
+    if not hotel_id:
+        return redirect(url_for("hotel_mngt"))
+    
+    mycol.delete_one({"_id": ObjectId(hotel_id)})
+    
+    return redirect(url_for("hotel_mngt"))
 
 
 

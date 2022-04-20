@@ -142,3 +142,8 @@ form {
     justify-content: space-evenly;
 
 }
+
+.cardimg {
+    max-width: 400px;
+    height: 300px;
+}
