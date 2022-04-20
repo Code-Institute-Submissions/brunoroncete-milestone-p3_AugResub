@@ -3,54 +3,32 @@
 {% endblock %}
 {% block content %}
 
-<div class="main">
-    <a class="waves-effect waves-light btn"><i class="material-icons">shopping_cart</i> Add to cart</a>
-    <a class="waves-effect waves-light btn"><i class="material-icons">delete</i> Delete</a>
-    <a class="waves-effect waves-light btn"><i class="material-icons">border_color</i> rename</a>
-    <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="https://placekitten.com/400/200">
-        </div>
-        <div class="card-content">
-            <a class="btn-floating btn-large waves-effect waves-light red activator">
-                <i class="material-icons">add</i>
-            </a>
-            <span class="card-title  grey-text text-darken-4">Card Title </span>
-            <p><a href="#" class="activator">This is a link</a></p>
-        </div>
-        <div class="card-reveal">
-            <span class="card-title blue-color">Card Title
-                <i class="material-icons">clear</i>
-            </span>
-            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+{% for hotel in hotels %}
+
+<div class="row">
+    <div class="col s12 m7">
+        <div class="card large">
+            <div class="card-image">
+                <img id="hotelsimg"
+                    src="{{hotel['img_url']}}">
+                <span class="card-title">{{hotel['name']}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{hotel['description']}}</p>
+            </div>
+
+            <div class="card-action">
+                <a class="btn waves-effect waves-light" href="{{ url_for('edit') }}?id={{ hotel['_id'] }}">Edit<i
+                    class="material-icons">arrow_back</i></a>
+                <a class="btn waves-effect waves-light" href="#">Delete<i
+                    class="material-icons">arrow_back</i></a>  
+            </div>
         </div>
     </div>
 </div>
 
-<div class="row">
-    <form class="col s14" method="POST" action="{{ url_for('add_hotel') }}">
-        <div class="row">
-            <div class="input-field col s6">
-                <input placeholder="Placeholder" name="hotel_name" id="hotel_name" type="text">
-                <label for="hotel_name">Hotel name</label>
-            </div>
-            <div class="input-field col s6">
-                <input id="hotel_description" name="hotel_description" id="hotel_description" type="text">
-                <label for="hotel_description">Description</label>
-            </div>
-            <div class="input-field col s6">
-                <input id="img_url" name="img_url" id="img_url" type="text">
-                <label for="img_url">Image URL</label>
-            </div>
-        </div>
-        <a class="btn waves-effect waves-light" href="{{url_for('hotel_mngt')}}">Edit<i
-                class="material-icons">arrow_back</i></a>
-        <a class="btn waves-effect waves-light" href="{{url_for('hotel_mngt')}}">Delete<i
-                class="material-icons">arrow_back</i></a>
-        </button>
+{% endfor %}
 
-    </form>
-</div>
 
 
 {% endblock %}

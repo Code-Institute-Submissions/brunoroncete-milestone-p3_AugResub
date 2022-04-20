@@ -91,7 +91,7 @@ def get_states():
     myclient = pymongo.MongoClient(url)
     mydb = myclient["GranTurismo"]
     mycol = mydb["state"]
-        
+    print(list(mycol.find()))
     return render_template("states.html", states = list(mycol.find()))
 
 
@@ -133,10 +133,33 @@ def add_hotel():
 
 @app.route("/hotel_mngt", methods=['POST','GET'])
 def hotel_mngt():
-    if "user" in session:
-        return render_template('add_hotel.html')  
+    myclient = pymongo.MongoClient(url)
+    mydb = myclient["GranTurismo"]
+    mycol = mydb["hotel"]
+        
+    return render_template("hotel_mngt.html", hotels = list(mycol.find()))
 
-    return redirect(url_for('login'))
+@app.route("/edit", methods=['POST','GET'])
+def edit():
+    if request.method == "POST":
+        pass
+
+    hotel_id = request.args.get('id')
+  
+    if not hotel_id:
+        return redirect(url_for("hotel_mngt"))
+
+    myclient = pymongo.MongoClient(url)
+    mydb = myclient["GranTurismo"]
+    mycol = mydb["hotel"]
+    hotel = mycol.find_one({"_id": ObjectId(hotel_id)})
+    
+    print(hotel)
+
+    if "user" in session :
+        return render_template("edit.html", hotel = hotel)
+ 
+    return redirect(url_for("login"))
 
 
 
