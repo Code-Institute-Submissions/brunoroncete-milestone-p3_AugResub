@@ -141,21 +141,24 @@ def hotel_mngt():
 
 @app.route("/edit", methods=['POST','GET'])
 def edit():
-    if request.method == "POST":
-        pass
-
+    myclient = pymongo.MongoClient(url)
+    mydb = myclient["GranTurismo"]
+    mycol = mydb["hotel"]
     hotel_id = request.args.get('id')
+  
+    if request.method == "POST":
+        name = request.form.get('hotel_name')
+        description = request.form.get('hotel_description')
+        img_url = request.form.get('img_url')
+        req = {"name": name, "description": description, "img_url" : img_url}
+        mycol.update_one({"_id": ObjectId(hotel_id)}, {"$set": req}, upsert=False)
+        return redirect(url_for("hotel_mngt"))
   
     if not hotel_id:
         return redirect(url_for("hotel_mngt"))
 
-    myclient = pymongo.MongoClient(url)
-    mydb = myclient["GranTurismo"]
-    mycol = mydb["hotel"]
     hotel = mycol.find_one({"_id": ObjectId(hotel_id)})
     
-    print(hotel)
-
     if "user" in session :
         return render_template("edit.html", hotel = hotel)
  
