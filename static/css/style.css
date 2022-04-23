@@ -159,3 +159,18 @@ form {
     display: flex;
     flex-direction: column;
 }
+
+nav {
+    background-color: #00303f;
+}
+
+
+@media only screen and (max-width: 450px) {
+   
+    #navbar a {
+        text-decoration: none;
+        color: #DCAE1D;
+        font-size: 12px;
+        font-weight: bold;}
+
+}
