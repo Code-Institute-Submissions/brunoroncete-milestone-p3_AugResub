@@ -1,6 +1,5 @@
 import os
 import pymongo
-import env
 from flask_pymongo import PyMongo
 from flask import (
     Flask, flash, render_template,

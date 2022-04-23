@@ -147,3 +147,10 @@ form {
     max-width: 400px;
     height: 300px;
 }
+
+
+#cardform {
+    display: flex;
+    justify-content: center;
+}
+
