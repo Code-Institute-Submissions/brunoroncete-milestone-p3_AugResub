@@ -1,10 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap', );
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
-$background-color: #f1f1f1;
-$height: 40px;
-$link-color: #039be5;
-$pixels-10: 10px;
 
 
 * {
@@ -52,7 +47,7 @@ body {
 .card {
     display: flex;
     max-width: 300px;
-    max-height: auto;
+    height: auto;
 }
 
 .statescards {
