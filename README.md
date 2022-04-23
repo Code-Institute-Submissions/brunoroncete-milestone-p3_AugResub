@@ -122,17 +122,17 @@ The purpose is to design an attractive website, so the costumers can find destin
 
 ### Manual Testing
 
-1. As a first time visitor, I want a clear understanding of the interactive game on show.
+1. As user I want a clear understanding of the website funcionalities.
+- The website is clear and easy to understand.
 
-- A large majority of the world's population have played or understand how a memory game is played. As soon as users enter the site, it is abundantly clear what the game is and how to play it.
+2. As a user I want to be able to view this site on my computer, mobile and tablet.
+- The website works in any device.
 
-2. As a first time visitor, I want a description of how to play the game.
+3. As a user I want to be able to create and add a new hotel.
+- After the log in the user are able to add their favourite hotels.
 
-- There is a button "HOW TO PLAY?", where the user can find the rules.
-
-3. As a first time visitor, I want to have live scoring and a timer showing how long I took to win the game.
-
-- There is a score board showing the number of matches done and a timer to show how long it's taking to win the game.
+4. As a user I want to be able to edit an existing hotel.
+- After the log in the user are able to edite or delete existing hotels.
 
 - Social Media Links
 1. When each link is clicked, it opens a new tab.
