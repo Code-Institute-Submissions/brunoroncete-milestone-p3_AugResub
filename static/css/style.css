@@ -64,6 +64,7 @@ body {
 
 #navbar {
     background-color: #00303F;
+    margin: 0px 20px 0px 20px;
 }
 
 #navbar a {
@@ -170,7 +171,15 @@ nav {
     #navbar a {
         text-decoration: none;
         color: #DCAE1D;
-        font-size: 12px;
+        font-size: 10px;
         font-weight: bold;}
 
+}
+
+.tittle {
+    margin: 0px 20px 0px 20px;
+}
+
+.regform {
+    margin: 0px 30px 0px 30px;
 }

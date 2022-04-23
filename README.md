@@ -70,36 +70,31 @@ The purpose is to design an attractive website, so the costumers can find destin
 
 #### Below is a brief overview of the website and its main features.
 
-- Timer and Score Board
+- Login
 
-![Timer.html](assets/images/timerscore.png)
+![Login](static/images/login.png)
 
-- How to play button
+- Login
 
-![How to play.html](assets/images/howtoplay.png)
+![Register](static/images/register.png)
 
-![Modal.html](assets/images/modal.png)
+- Add hotel
 
-- Game Board
+![Add Hotel](static/images/addhotel.png)
 
-![Game up.html](assets/images/game.png)
+- Edit Card
 
-![Game down.html](assets/images/game2.png)
+![editcard.png](static/images/editcard.png)
 
-- Play again button
+- Logged Navbar
 
-![Restart button.html](assets/images/restartbutton.png)
-
-- You Win Alert
-
-![Alert.html](assets/images/aviso.png)
-
+![Logged Navbar](static/images/loggednavbar.png)
 
 
 ## Frameworks, Languages & Programs Used
 
-### [VSCode](https://code.visualstudio.com/)
-- This developer used VSCode for their IDE while building the website.
+### [Gitpod](https://www.gitpod.io/)
+- This developer used Gitpod for their IDE while building the website.
 
 ### [BootstrapCDN](https://www.bootstrapcdn.com/)
 - The project uses Bootstrap v 5.1.0 to simplify the structure of the website.
@@ -172,8 +167,6 @@ I used the Lighthouse on Google Developer Tools to check the Perfomance, Accessi
 PowerMapper was used to double-check the browser compatibility.
 
 ### Issues
-- The timer starts as soon as the user enter the page, but it should start after the first click. Restarting the game makes it retart the timer.
-
 - 
 
 ## Deployment
