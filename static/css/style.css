@@ -154,3 +154,8 @@ form {
     justify-content: center;
 }
 
+
+#cardlogin {
+    display: flex;
+    flex-direction: column;
+}
