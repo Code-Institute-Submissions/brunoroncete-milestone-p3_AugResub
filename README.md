@@ -1,6 +1,6 @@
 # STAR HOTELS AND ACCOMODATIONS
 
-![Mockup](assets/images/mockup.png)
+![Mockup](static/images/amiresponsive.png)
 
 This comprehensive site was designed for the third of four Milestone Projects that the developer must complete during the Full Stack Web Development Program at The Code Institute. The main requirements were to build a full-stack site that allows your users to manage a common dataset about a particular domain.
 ## UX
@@ -105,6 +105,9 @@ The purpose is to design an attractive website, so the costumers can find destin
 ### [Balsamiq](https://balsamiq.com/) 
 - The project uses Balsamiq to create the wireframe mockups.
 
+### MongoDB
+- MongoDb is used as project database.
+
 ### HTML 5 
 - Markup language designed to be displayed in a web browser.
 
@@ -142,36 +145,35 @@ The purpose is to design an attractive website, so the costumers can find destin
 
 The W3C Markup Validator and W3C CSS Validator Services were used to validate the project to ensure there were no syntax errors in the project.
 
-- W3C Markup Validator
+- W3C HTML Validator
 
-index.html
-
-![Markup Index](assets/images/cssvalid.png)
+![Markup Index](static/images/htmlvalidator.png)
 
 
 - W3C CSS Validator 
 
-![Markup CSS](assets/images/cssvalid1.png)
+![Markup CSS](static/images/cssvalidator.png)
+
+The CSS validator shows an error that comes from Materialize.
 
 
 - Lighthouse
 
-![Lighthouse](assets/images/lighthouse.png)
+![Lighthouse](static/images/lighthouse.png)
 
 I used the Lighthouse on Google Developer Tools to check the Perfomance, Accessibility, Best Practices and SEO of the website.
 
-- PowerMapper 
+- Pep8 Validator
 
-![PowerMapper](assets/images/powermapper.png)
+![Pep8](static/images/pep8.png)
 
-PowerMapper was used to double-check the browser compatibility.
+Pep8 is a Python validator.
 
 ### Issues
-- 
+- I had many issues deploying the project on Heroku, wich the tutors helped to fix.
+- Due to the proximity of the deadline I had to leave behind some improvements on CSS code.  
 
 ## Deployment
-
-This project was developed using Visual Studio Code Insiders, committed to git and pushed to GitHub using git bash terminal.
 
 ### Deploying on Heroku
 
@@ -230,9 +232,10 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 ### Media
 
 - All images were sourced from [Unsplash](https://unsplash.com/) or [Pexels](https://www.pexels.com/).
+
 ### Acknowledgements
 
-- Student care and fellow students at Code Institute for their support.
+- Code Institute tutors Sean, Christine and Scott and fellow students for their support.
 
 
 
