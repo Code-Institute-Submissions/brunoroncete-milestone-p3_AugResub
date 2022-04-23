@@ -14,19 +14,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/style.css" type="text/css">
-
-    
         {% block styles %}
-        {% endblock %}
-    
- 
-    
+        {% endblock %}    
     <title>STAR</title>
 </head>
 
 <body>
     <header>
-        <section>
+        <div>
             <!-- flash messages -->
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -37,10 +32,7 @@
             {% endfor %}
             {% endif %}
             {% endwith %}
-  
-    
- 
-        </section>
+        </div>
         <nav>
             <div class="nav-wrapper" id="navbar">
                 <a href="{{ url_for('hotels') }}" class="brand-logo">STAR Hotels and Accomodations</a>
@@ -67,7 +59,7 @@
             </div>
         </nav>
 
-        <ul class="sidenav" id="mobile-demo navbar">
+        <ul class="sidenav mobile-demo" id="navbar">
             <li><a href="{{ url_for('hotels') }}">Home</a></li>
             <li><a href="{{ url_for('login') }}">Login</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
