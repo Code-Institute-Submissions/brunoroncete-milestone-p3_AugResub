@@ -1,10 +1,15 @@
 import os
 import pymongo
-import env
+
 from flask_pymongo import PyMongo
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
+
+if os.path.exists("env.py"):
+    import env
+
+DEBUG = False
 
 url = os.environ.get("MONGO_URI")
 

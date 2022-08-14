@@ -9,6 +9,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
+DEBUG = False
+
 url = os.environ.get("MONGO_URI")
 
 app = Flask(__name__)
