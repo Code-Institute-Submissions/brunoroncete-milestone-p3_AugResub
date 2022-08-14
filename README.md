@@ -66,7 +66,7 @@ The purpose is to design an attractive website, so the costumers can find destin
 
 
 
-## Existing Features
+## Existing Features.
 
 #### Below is a brief overview of the website and its main features.
 
