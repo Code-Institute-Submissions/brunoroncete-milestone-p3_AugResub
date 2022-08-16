@@ -5,32 +5,36 @@
 
 
 
-<div class="row">
-    <form class="col s14 regform" method="POST" action="{{ url_for('add_hotel') }}">
-        <div class="row">
-            <div class="input-field col s6">
-                <input placeholder="Placeholder" name="hotel_name" id="hotel_name" type="text">
-                <label for="hotel_name">Hotel name</label>
-            </div>
-            <div class="input-field col s6">
-                <input id="hotel_description" name="hotel_description" id="hotel_description" type="text">
-                <label for="hotel_description">Description</label>
-            </div>
-            <div class="input-field col s6">
-                <input id="img_url" name="img_url" id="img_url" type="text">
-                <label for="img_url">Image URL</label>
-            </div>
-            <div class="input-field col s6">
-                <input id="hotel_link" name="hotel_link" id="hotel_link" type="text">
-                <label for="img_url">Link for booking page</label>
-            </div>
+<div class="form-box">
+    <h1>Add Hotel Form</h1>
+    <form method="POST" action="{{ url_for('add_hotel') }}">
+        
+        <div class="form-group">
+            <label for="hotel_name">Hotel name</label>
+            <input name="hotel_name" id="hotel_name" type="text">
         </div>
-        <a class="btn waves-effect waves-light" href="{{url_for('hotel_mngt')}}">Return<i
+
+        <div class="form-group">
+            <label for="hotel_description">Description</label>
+            <input id="hotel_description" name="hotel_description" id="hotel_description" type="text" maxlength="140">
+        </div>
+
+        <div class="form-group">
+            <label for="img_url">Image URL</label>
+            <input id="img_url" name="img_url" id="img_url" type="text">
+        </div>
+
+        <div class="form-group">
+            <label for="hotel_link">Link for booking page</label>
+            <input id="hotel_link" name="hotel_link" id="hotel_link" type="text">
+        </div>
+        <div class="bttn-forms">
+        <button class="btn waves-effect waves-divght" href="{{url_for('hotel_mngt')}}">Return<i
                 class="material-icons">arrow_back</i></a>
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
             <i class="material-icons right">send</i>
         </button>
-
+        </div>
     </form>
 </div>
 

@@ -94,6 +94,7 @@ def add_hotel():
         description = request.form.get('hotel_description')
         img_url = request.form.get('img_url')
         hotel_link = request.form.get('hotel_link')
+        created_by = session["user"]
 
         existing_hotel = mycol.find_one({"name": name})
 
@@ -102,7 +103,7 @@ def add_hotel():
             return redirect(url_for("add_hotel"))
 
         req = {"name": name, "description": description,
-               "img_url": img_url, "hotel_link": hotel_link}
+               "img_url": img_url, "hotel_link": hotel_link, "created_by": created_by}
 
         x = mycol.insert_one(req)
 

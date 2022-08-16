@@ -9,7 +9,7 @@ from flask import (
 if os.path.exists("env.py"):
     import env
 
-DEBUG = False
+DEBUG = True
 
 url = os.environ.get("MONGO_URI")
 

@@ -36,14 +36,14 @@
         <nav>
             <div class="nav-wrapper" id="navbar">
                 <a href="{{ url_for('hotels') }}" class="brand-logo"><strong>STAR</strong> Hotels</a>
-                <a href="{{ url_for('hotels') }}" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
+                
+                <ul class="right">
                     {% if session.user %}
                     <li><a href="{{ url_for('hotels') }}">Home</a></li>
                     
-                      <!-- Dropdown Trigger -->
+                    <!-- Dropdown Trigger -->
                     <a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons">menu</i></a>
-
+            
                     <!-- Dropdown Structure -->
                     <ul id='dropdown1' class='dropdown-content'>
                         <li><a href="{{ url_for('add_hotel') }}">Add Hotels</a></li>
@@ -51,9 +51,12 @@
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     </ul>
                     {% else %}
-                    <li><a href="{{ url_for('hotels') }}">Home</a></li>
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <a class='dropdown-trigger btn' href='#' data-target='dropdown2'><i class="material-icons">menu</i></a>
+                    <ul id='dropdown2' class='dropdown-content'>
+                        <li><a href="{{ url_for('hotels') }}">Home</a></li>
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                    </ul>
                     {% endif %}
                 </ul>
             </div>
