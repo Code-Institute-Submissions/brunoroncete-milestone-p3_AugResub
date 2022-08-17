@@ -45,19 +45,20 @@
                     <li><a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons">menu</i></a></li>
             
                     <!-- Dropdown Structure -->
-                    <li><ul id='dropdown1' class='dropdown-content'>
+                    <ul id='dropdown1' class='dropdown-content'>
                             <li><a href="{{ url_for('add_hotel') }}">Add Hotels</a></li>
                             <li><a href="{{ url_for('hotel_mngt') }}">Manage Hotels</a></li>
                             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         </ul>
-                    </li>    
+                       
                     {% else %}
                     <a class='dropdown-trigger btn' href='#' data-target='dropdown2'><i class="material-icons">menu</i></a>
-                    <ul id='dropdown2' class='dropdown-content'>
-                        <li><a href="{{ url_for('hotels') }}">Home</a></li>
-                        <li><a href="{{ url_for('login') }}">Login</a></li>
-                        <li><a href="{{ url_for('register') }}">Register</a></li>
-                    </ul>
+                    <li><ul id='dropdown2' class='dropdown-content'>
+                            <li><a href="{{ url_for('hotels') }}">Home</a></li>
+                            <li><a href="{{ url_for('login') }}">Login</a></li>
+                            <li><a href="{{ url_for('register') }}">Register</a></li>
+                        </ul>
+                    </li>
                     {% endif %}
                 </ul>
             </div>
