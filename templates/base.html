@@ -42,7 +42,7 @@
                     <li><a href="{{ url_for('hotels') }}">Home</a></li>
                     
                     <!-- Dropdown Trigger -->
-                    <a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons">menu</i></a>
+                    <li><a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons">menu</i></a></li>
             
                     <!-- Dropdown Structure -->
                     <ul id='dropdown1' class='dropdown-content'>
@@ -51,7 +51,7 @@
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     </ul>
                     {% else %}
-                    <a class='dropdown-trigger btn' href='#' data-target='dropdown2'><i class="material-icons">menu</i></a>
+                    <li><a class='dropdown-trigger btn' href='#' data-target='dropdown2'><i class="material-icons">menu</i></a></li>
                     <ul id='dropdown2' class='dropdown-content'>
                         <li><a href="{{ url_for('hotels') }}">Home</a></li>
                         <li><a href="{{ url_for('login') }}">Login</a></li>
