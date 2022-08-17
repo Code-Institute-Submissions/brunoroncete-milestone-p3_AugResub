@@ -5,26 +5,25 @@
 
 
 
-<div class="row">
-    <form class="col s14" method="POST" action="{{ url_for('edit') }}?id={{ hotel['_id'] }}">
-        <div class="row">
-            <div class="input-field col s6">
-                <input placeholder="Placeholder" name="hotel_name" id="hotel_name" type="text" value = " {{ hotel['name'] }}">
+<div class="form-box">
+    <form method="POST" action="{{ url_for('edit') }}?id={{ hotel['_id'] }}">
+        
+            <div class="form-group  col s6">
                 <label for="hotel_name">Hotel name</label>
+                <input placeholder="Placeholder" name="hotel_name" id="hotel_name" type="text" value = " {{ hotel['name'] }}">
             </div>
-            <div class="input-field col s6">
+            <div class="form-group  col s6">
+            
                 <input id="hotel_description" name="hotel_description" id="hotel_description" type="text" value = " {{ hotel['description'] }}">
-                <label for="hotel_description">Description</label>
             </div>
-            <div class="input-field col s6">
-                <input id="img_url" name="img_url" id="img_url" type="text" value = "{{ hotel ['img_url'] }}">
+            <div class="form-group  col s6">
                 <label for="img_url">Image URL</label>
+                <input id="img_url" name="img_url" id="img_url" type="text" value = "{{ hotel ['img_url'] }}">
             </div>
-            <div class="input-field col s6">
-                <input id="hotel_link" name="hotel_link" id="hotel_link" type="text" value = "{{ hotel ['hotel_link'] }}">
+            <div class="form-group  col s6">
                 <label for="img_url">Link for booking page</label>
+                <input id="hotel_link" name="hotel_link" id="hotel_link" type="text" value = "{{ hotel ['hotel_link'] }}">
             </div>
-        </div>
         <a class="btn waves-effect waves-light" href="{{url_for('hotel_mngt')}}">Return<i
                 class="material-icons">arrow_back</i></a>
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
